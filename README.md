@@ -1,2 +1,1 @@
-# docker.run.bash
-run bash on docker , container
+source code of last function
