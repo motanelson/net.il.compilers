@@ -1,1 +1,1 @@
-source code of last function
+change color of linux ansi console int rgb
