@@ -16,6 +16,8 @@ cabecalho
 
 conteudoAssembly
     : ID
+    | NUMERO
+    | STRING
     ;
 
 // ==========================
@@ -36,7 +38,21 @@ campo
 // Método
 // ==========================
 metodo
-    : '.method' ('public' | 'private')? tipo ID '(' parametroLista? ')' '{' instrucao* '}'
+    : '.method' ('public' | 'private')? tipo ID '(' parametroLista? ')' blocoMetodo
+    ;
+
+blocoMetodo
+    : '{' diretivaMetodo* instrucao* '}'
+    ;
+
+// Diretivas tipo .entrypoint, .locals
+diretivaMetodo
+    : '.entrypoint'
+    | '.locals' '(' declaracaoLocal (',' declaracaoLocal)* ')'
+    ;
+
+declaracaoLocal
+    : tipo ID
     ;
 
 // ==========================
@@ -54,50 +70,62 @@ parametro
 // Instruções
 // ==========================
 instrucao
-    : chamadaMetodo
-    | atribuicao
+    : label
+    | branch
+    | chamadaMetodo
+    | instrucaoStack
     | operadorBinario
     | retorno
-    | carregarConstante
-    | acessoArgumento
-    ;
-// ==========================
-// Chamada de método
-// ==========================
-chamadaMetodo
-    : 'call' tipo nomeMetodo '(' argumentoLista? ')' ';'
-    ;
-
-// Suporte básico a nome qualificado (ex: Console::WriteLine)
-nomeMetodo
-    : ID ('::' ID)?
     ;
 
 // ==========================
-// Atribuições (stack/local)
+// Labels e Branches
 // ==========================
-atribuicao
+label
+    : ID ':'
+    ;
+
+branch
+    : ('br' | 'brtrue' | 'brfalse') ID ';'
+    ;
+
+// ==========================
+// Stack (IL realista)
+// ==========================
+instrucaoStack
     : 'ldloc' NUMERO ';'
     | 'stloc' NUMERO ';'
+    | 'ldarg' '.' NUMERO ';'
+    | 'ldc' NUMERO ';'
+    | 'dup' ';'
+    | 'pop' ';'
     ;
 
 // ==========================
-// Constantes
-// ==========================
-carregarConstante
-    : 'ldc' NUMERO ';'
-    ;
-
-// ==========================
-// Operadores
+// Operações
 // ==========================
 operadorBinario
     : ('add' | 'sub' | 'mul' | 'div') ';'
     ;
 
-acessoArgumento
-    : 'ldarg.' NUMERO
+// ==========================
+// Chamadas de método
+// ==========================
+chamadaMetodo
+    : 'call' tipo nomeMetodo '(' argumentoLista? ')' ';'
+    | 'callvirt' tipo nomeMetodo '(' argumentoLista? ')' ';'
     ;
+
+chamadaMetodoExpr
+    : 'call' tipo nomeMetodo '(' argumentoLista? ')'
+    | 'callvirt' tipo nomeMetodo '(' argumentoLista? ')'
+    ;
+
+// Nome qualificado (Console::WriteLine)
+nomeMetodo
+    : ID ('::' ID)*
+    ;
+
 // ==========================
 // Retorno
 // ==========================
@@ -113,10 +141,10 @@ argumentoLista
     ;
 
 // ==========================
-// Expressões (simples por agora)
+// Expressões
 // ==========================
 expressao
-    : chamadaMetodo
+    : chamadaMetodoExpr
     | ID
     | NUMERO
     ;
@@ -129,6 +157,8 @@ tipo
     | 'float32'
     | 'bool'
     | 'string'
+    | 'void'
+    | ID
     ;
 
 // ==========================
@@ -140,6 +170,10 @@ ID
 
 NUMERO
     : [0-9]+
+    ;
+
+STRING
+    : '"' (~["\r\n])* '"'
     ;
 
 WS

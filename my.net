@@ -1,0 +1,12 @@
+.method public void main() {
+    ldc 10;
+    ldc 20;
+    add;
+    stloc 0;
+
+    ldloc 0;
+    ldc 5;
+    sub;
+
+    ret;
+}

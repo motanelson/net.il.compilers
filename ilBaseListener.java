@@ -87,6 +87,42 @@ public class ilBaseListener implements ilListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterBlocoMetodo(ilParser.BlocoMetodoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBlocoMetodo(ilParser.BlocoMetodoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDiretivaMetodo(ilParser.DiretivaMetodoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDiretivaMetodo(ilParser.DiretivaMetodoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclaracaoLocal(ilParser.DeclaracaoLocalContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclaracaoLocal(ilParser.DeclaracaoLocalContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterParametroLista(ilParser.ParametroListaContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -123,49 +159,37 @@ public class ilBaseListener implements ilListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterChamadaMetodo(ilParser.ChamadaMetodoContext ctx) { }
+	@Override public void enterLabel(ilParser.LabelContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitChamadaMetodo(ilParser.ChamadaMetodoContext ctx) { }
+	@Override public void exitLabel(ilParser.LabelContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNomeMetodo(ilParser.NomeMetodoContext ctx) { }
+	@Override public void enterBranch(ilParser.BranchContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNomeMetodo(ilParser.NomeMetodoContext ctx) { }
+	@Override public void exitBranch(ilParser.BranchContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAtribuicao(ilParser.AtribuicaoContext ctx) { }
+	@Override public void enterInstrucaoStack(ilParser.InstrucaoStackContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAtribuicao(ilParser.AtribuicaoContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCarregarConstante(ilParser.CarregarConstanteContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCarregarConstante(ilParser.CarregarConstanteContext ctx) { }
+	@Override public void exitInstrucaoStack(ilParser.InstrucaoStackContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -183,13 +207,37 @@ public class ilBaseListener implements ilListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAcessoArgumento(ilParser.AcessoArgumentoContext ctx) { }
+	@Override public void enterChamadaMetodo(ilParser.ChamadaMetodoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAcessoArgumento(ilParser.AcessoArgumentoContext ctx) { }
+	@Override public void exitChamadaMetodo(ilParser.ChamadaMetodoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterChamadaMetodoExpr(ilParser.ChamadaMetodoExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitChamadaMetodoExpr(ilParser.ChamadaMetodoExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNomeMetodo(ilParser.NomeMetodoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNomeMetodo(ilParser.NomeMetodoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

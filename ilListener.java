@@ -67,6 +67,36 @@ public interface ilListener extends ParseTreeListener {
 	 */
 	void exitMetodo(ilParser.MetodoContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link ilParser#blocoMetodo}.
+	 * @param ctx the parse tree
+	 */
+	void enterBlocoMetodo(ilParser.BlocoMetodoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ilParser#blocoMetodo}.
+	 * @param ctx the parse tree
+	 */
+	void exitBlocoMetodo(ilParser.BlocoMetodoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ilParser#diretivaMetodo}.
+	 * @param ctx the parse tree
+	 */
+	void enterDiretivaMetodo(ilParser.DiretivaMetodoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ilParser#diretivaMetodo}.
+	 * @param ctx the parse tree
+	 */
+	void exitDiretivaMetodo(ilParser.DiretivaMetodoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ilParser#declaracaoLocal}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeclaracaoLocal(ilParser.DeclaracaoLocalContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ilParser#declaracaoLocal}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeclaracaoLocal(ilParser.DeclaracaoLocalContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link ilParser#parametroLista}.
 	 * @param ctx the parse tree
 	 */
@@ -97,45 +127,35 @@ public interface ilListener extends ParseTreeListener {
 	 */
 	void exitInstrucao(ilParser.InstrucaoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ilParser#chamadaMetodo}.
+	 * Enter a parse tree produced by {@link ilParser#label}.
 	 * @param ctx the parse tree
 	 */
-	void enterChamadaMetodo(ilParser.ChamadaMetodoContext ctx);
+	void enterLabel(ilParser.LabelContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ilParser#chamadaMetodo}.
+	 * Exit a parse tree produced by {@link ilParser#label}.
 	 * @param ctx the parse tree
 	 */
-	void exitChamadaMetodo(ilParser.ChamadaMetodoContext ctx);
+	void exitLabel(ilParser.LabelContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ilParser#nomeMetodo}.
+	 * Enter a parse tree produced by {@link ilParser#branch}.
 	 * @param ctx the parse tree
 	 */
-	void enterNomeMetodo(ilParser.NomeMetodoContext ctx);
+	void enterBranch(ilParser.BranchContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ilParser#nomeMetodo}.
+	 * Exit a parse tree produced by {@link ilParser#branch}.
 	 * @param ctx the parse tree
 	 */
-	void exitNomeMetodo(ilParser.NomeMetodoContext ctx);
+	void exitBranch(ilParser.BranchContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ilParser#atribuicao}.
+	 * Enter a parse tree produced by {@link ilParser#instrucaoStack}.
 	 * @param ctx the parse tree
 	 */
-	void enterAtribuicao(ilParser.AtribuicaoContext ctx);
+	void enterInstrucaoStack(ilParser.InstrucaoStackContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ilParser#atribuicao}.
+	 * Exit a parse tree produced by {@link ilParser#instrucaoStack}.
 	 * @param ctx the parse tree
 	 */
-	void exitAtribuicao(ilParser.AtribuicaoContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ilParser#carregarConstante}.
-	 * @param ctx the parse tree
-	 */
-	void enterCarregarConstante(ilParser.CarregarConstanteContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ilParser#carregarConstante}.
-	 * @param ctx the parse tree
-	 */
-	void exitCarregarConstante(ilParser.CarregarConstanteContext ctx);
+	void exitInstrucaoStack(ilParser.InstrucaoStackContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ilParser#operadorBinario}.
 	 * @param ctx the parse tree
@@ -147,15 +167,35 @@ public interface ilListener extends ParseTreeListener {
 	 */
 	void exitOperadorBinario(ilParser.OperadorBinarioContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ilParser#acessoArgumento}.
+	 * Enter a parse tree produced by {@link ilParser#chamadaMetodo}.
 	 * @param ctx the parse tree
 	 */
-	void enterAcessoArgumento(ilParser.AcessoArgumentoContext ctx);
+	void enterChamadaMetodo(ilParser.ChamadaMetodoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ilParser#acessoArgumento}.
+	 * Exit a parse tree produced by {@link ilParser#chamadaMetodo}.
 	 * @param ctx the parse tree
 	 */
-	void exitAcessoArgumento(ilParser.AcessoArgumentoContext ctx);
+	void exitChamadaMetodo(ilParser.ChamadaMetodoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ilParser#chamadaMetodoExpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterChamadaMetodoExpr(ilParser.ChamadaMetodoExprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ilParser#chamadaMetodoExpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitChamadaMetodoExpr(ilParser.ChamadaMetodoExprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ilParser#nomeMetodo}.
+	 * @param ctx the parse tree
+	 */
+	void enterNomeMetodo(ilParser.NomeMetodoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ilParser#nomeMetodo}.
+	 * @param ctx the parse tree
+	 */
+	void exitNomeMetodo(ilParser.NomeMetodoContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ilParser#retorno}.
 	 * @param ctx the parse tree
